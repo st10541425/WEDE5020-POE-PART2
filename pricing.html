@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Little Heroes NPO - Get Involved</title>
+    <title>Get Involved - Donate | Little Heroes NPO Durban</title>
+    <meta name="description" content="Support Little Heroes NPO - donate R100 to feed a child, volunteer in Durban, or sponsor education programs.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,18 +14,45 @@
         <a href="pricing.html">Get Involved</a>
         <a href="contact.html">Contact</a>
     </nav>
-    <hr>
-    <h1>Get Involved</h1>
-    <div class="card">
-        <h2>Donate</h2>
-        <p>R100 feeds 1 child for a week</p>
-        <button onclick="alert('Thank you for donating!')">Donate Now</button>
-    </div>
-    <div class="card">
-        <h2>Volunteer</h2>
-        <p>Join us in Durban to help the kids.</p>
-        <button onclick="alert('Thank you for volunteering!')">Volunteer</button>
-    </div>
-    <script src="script.js"></script>
+<hr>
+<h1>Get Involved</h1>
+
+<input type="text" id="searchInput" placeholder="Search programs (e.g. donate, volunteer, education)..." style="width:80%; padding:10px; margin:10px 0;">
+
+<div id="programs">
+  <div class="card">
+    <h2>Donate</h2>
+    <p>R100 feeds 1 child for a week in Durban</p>
+    <button onclick="alert('Thank you for donating!')">Donate Now</button>
+  </div>
+  <div class="card">
+    <h2>Volunteer</h2>
+    <p>Join us in Durban to help the kids with tutoring and care</p>
+    <button onclick="alert('Thank you for volunteering!')">Volunteer</button>
+  </div>
+  <div class="card">
+    <h2>Education Sponsor</h2>
+    <p>Sponsor school books and uniforms for vulnerable children</p>
+    <button onclick="alert('Thank you for sponsoring education!')">Sponsor</button>
+  </div>
+  <div class="card">
+    <h2>Food Parcels</h2>
+    <p>Provide monthly food parcels to families in KZN communities</p>
+    <button onclick="alert('Thank you for food support!')">Support Food</button>
+  </div>
+</div>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const cards = document.querySelectorAll('.card');
+  searchInput.addEventListener('keyup', function(){
+    const filter = searchInput.value.toLowerCase();
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(filter) ? '' : 'none';
+    });
+  });
+</script>
+<script src="script.js"></script>
 </body>
 </html>
