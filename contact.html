@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Little Heroes NPO - Contact</title>
+    <title>Contact Us | Little Heroes NPO Durban</title>
+    <meta name="description" content="Contact Little Heroes NPO in Durban, KZN. Visit us at 123 Hero Street, call 031 123 4567 or email info@littleheroes.org.za to volunteer or donate.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
     <nav>
@@ -12,11 +15,35 @@
         <a href="pricing.html">Get Involved</a>
         <a href="contact.html">Contact</a>
     </nav>
-    <hr>
-    <h1>Contact Us</h1>
-    <p><b>Address:</b> 123 Hero Street, Durban, KZN, 4001</p>
-    <p><b>Phone:</b> 031 123 4567</p>
-    <p><b>Email:</b> info@littleheroes.org.za</p>
-    <script src="script.js"></script>
+<hr>
+<h1>Contact Us</h1>
+<p><b>Address:</b> 123 Hero Street, Durban, KZN, 4001</p>
+<p><b>Phone:</b> 031 123 4567</p>
+<p><b>Email:</b> info@littleheroes.org.za</p>
+
+<h2>Find Us in Durban</h2>
+<div id="map" style="height: 350px; width: 100%; border-radius: 8px; margin-bottom: 20px;"></div>
+<h2>Send us a message</h2>
+<form id="contactForm">
+  <input type="text" placeholder="Your Name" required><br><br>
+  <input type="email" placeholder="Your Email" required><br><br>
+  <textarea placeholder="Your Message" required></textarea><br><br>
+  <button type="submit">Send Message</button>
+</form>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  var map = L.map('map').setView([-29.8587, 31.0218], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+  L.marker([-29.8587, 31.0218]).addTo(map).bindPopup("Little Heroes NPO - 123 Hero Street, Durban").openPopup();
+  
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Thank you for contacting Little Heroes! We will reply soon.');
+  });
+</script>
+<script src="script.js"></script>
 </body>
 </html>
